@@ -4,7 +4,7 @@ DBIx::Schema::DSL - DSL for Database schema declaration
 
 # VERSION
 
-This document describes DBIx::Schema::DSL version 0.11.
+This document describes DBIx::Schema::DSL version 0.12.
 
 # SYNOPSIS
 
@@ -68,7 +68,7 @@ Set database name. (Optional)
 
 ### `add_table_options(%opt :Hash)`
 
-Set global setting of table->extra for SQL::Translator::Table
+Set global setting of table->extra for SQL::Translator::Schema::Table
 
 ### `default_unsigned()`
 
@@ -97,7 +97,7 @@ Declare column. It can be called only in create\_table block.
 
 `$data_type` strings (ex. `integer` ) are can be used as a function.
 
-`integer($column_name, (%option))` is same as `column($column_name, (%option))`
+`integer($column_name, (%option))` is same as `column('integer', $column_name, (%option))`
 
 DataType functions are as follows.
 
@@ -141,7 +141,7 @@ Specify column using `%option` hash.
 
     integer 'id', primary_key => 1, default => 0;
 
-Each keyword has mapping to argument for SQL::Translator::Field.
+Each keyword has mapping to argument for SQL::Translator::Schema::Field.
 
 mappings are:
 

@@ -3,7 +3,7 @@ use 5.008_001;
 use strict;
 use warnings;
 
-our $VERSION = '0.11';
+our $VERSION = '0.12';
 
 use Carp qw/croak/;
 use Array::Diff;
@@ -368,7 +368,7 @@ DBIx::Schema::DSL - DSL for Database schema declaration
 
 =head1 VERSION
 
-This document describes DBIx::Schema::DSL version 0.11.
+This document describes DBIx::Schema::DSL version 0.12.
 
 =head1 SYNOPSIS
 
@@ -432,7 +432,7 @@ Set database name. (Optional)
 
 =head3 C<< add_table_options(%opt :Hash) >>
 
-Set global setting of table->extra for SQL::Translator::Table
+Set global setting of table->extra for SQL::Translator::Schema::Table
 
 =head3 C<< default_unsigned() >>
 
@@ -461,7 +461,7 @@ Declare column. It can be called only in create_table block.
 
 C<< $data_type >> strings (ex. C<< integer >> ) are can be used as a function.
 
-C<< integer($column_name, (%option)) >> is same as C<< column($column_name, (%option)) >>
+C<< integer($column_name, (%option)) >> is same as C<< column('integer', $column_name, (%option)) >>
 
 DataType functions are as follows.
 
@@ -533,7 +533,7 @@ Specify column using C<< %option >> hash.
 
     integer 'id', primary_key => 1, default => 0;
 
-Each keyword has mapping to argument for SQL::Translator::Field.
+Each keyword has mapping to argument for SQL::Translator::Schema::Field.
 
 mappings are:
 
